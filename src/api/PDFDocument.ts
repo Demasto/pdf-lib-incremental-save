@@ -1310,10 +1310,7 @@ export default class PDFDocument {
     };
     await this.prepareForSave(saveOptions);
 
-    const Writer = this.context.pdfFileDetails.useObjectStreams
-      ? PDFStreamWriter
-      : PDFWriter;
-    return Writer.forContextWithSnapshot(
+    return PDFWriter.forContextWithSnapshot(
       this.context,
       objectsPerTick,
       snapshot,
